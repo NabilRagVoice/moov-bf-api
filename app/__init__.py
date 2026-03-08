@@ -1,19 +1,11 @@
 from flask import Flask
 from flask_cors import CORS
-from app.config import Config
-from app.database import init_cosmos_db
-from app.storage import init_blob_storage
+from config import Config
 
 def create_app():
     app = Flask(__name__)
     app.config.from_object(Config)
-    
-    # Enable CORS
     CORS(app)
-    
-    # Initialize databases
-    init_cosmos_db(app)
-    init_blob_storage(app)
     
     # Register blueprints
     from app.routes.health import health_bp
@@ -22,7 +14,7 @@ def create_app():
     from app.routes.accords_moov_money import accords_mm_bp
     from app.routes.offres import offres_bp
     from app.routes.admin import admin_bp
-    from app.routes.config import config_bp
+    from app.routes.config_routes import config_bp
     
     app.register_blueprint(health_bp, url_prefix='/api')
     app.register_blueprint(accords_hd_bp, url_prefix='/api/accords/haut-debit')
