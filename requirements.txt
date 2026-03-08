@@ -1,0 +1,10 @@
+# Moov BF API - Dependencies
+flask==3.0.0
+flask-cors==4.0.0
+azure-cosmos==4.5.1
+azure-storage-blob==12.19.0
+python-dotenv==1.0.0
+gunicorn==21.2.0
+pydantic==2.5.0
+python-dateutil==2.8.2
+uuid6==2024.1.12
